@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './output.css';
+import '../index.css';
 
 /**
  * Primary UI component for user interaction
@@ -48,3 +48,5 @@ Button.defaultProps = {
   size: 'medium',
   onClick: undefined,
 };
+
+export default Button;

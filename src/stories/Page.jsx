@@ -1,19 +1,12 @@
 import React from 'react';
 
 import { Header } from './Header';
-import './output.css';
+import '../index.css';
 
 export const Page = () => {
-  const [user, setUser] = React.useState();
 
   return (
     <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
-      />
 
       <section className="storybook-page">
         <h2>Pages in Storybook</h2>
@@ -67,3 +60,5 @@ export const Page = () => {
     </article>
   );
 };
+
+export default Page;

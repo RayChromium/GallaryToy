@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import { Button } from './Button';
-import './output.css';
+import '../index.css';
 
-export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
-  <header>
-    <div className="storybook-header">
-      <div>
+export const Header = () => (
+  <header className='storybook-header py-3 bg-blue-800 text-white shadow-md'>
+    <div className="relative container mx-auto p-2">
+      <div className='flex items-center justify-between space-x-4'>
         <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
           <g fill="none" fillRule="evenodd">
             <path
@@ -24,36 +24,30 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
             />
           </g>
         </svg>
-        <h1>Acme</h1>
-      </div>
-      <div>
-        {user ? (
-          <>
-            <span className="welcome">
-              Welcome, <b>{user.name}</b>!
-            </span>
-            <Button size="small" onClick={onLogout} label="Log out" />
-          </>
-        ) : (
-          <>
-            <Button size="small" onClick={onLogin} label="Log in" />
-            <Button primary size="small" onClick={onCreateAccount} label="Sign up" />
-          </>
-        )}
+        <h1>GalleryToy</h1>
+        <nav className='relative container mx-auto p-6'>
+          <div className="flex items-center justify-between space-x-4">
+            <a href='/' className='hover:text-blue-300 hover:bg-white hover:bg-opacity-10 rounded-lg px-2 py-1 transition-all duration-200 ease-in-out'>Home</a>
+            <a href='/' className='hover:text-blue-300 hover:bg-white hover:bg-opacity-10 rounded-lg px-2 py-1 transition-all duration-200 ease-in-out'>About</a>
+            <a href='/' className='hover:text-blue-300 hover:bg-white hover:bg-opacity-10 rounded-lg px-2 py-1 transition-all duration-200 ease-in-out'>Contact</a>
+          </div>
+        </nav>
       </div>
     </div>
   </header>
 );
 
 Header.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }),
-  onLogin: PropTypes.func.isRequired,
-  onLogout: PropTypes.func.isRequired,
-  onCreateAccount: PropTypes.func.isRequired,
+  // user: PropTypes.shape({
+  //   name: PropTypes.string.isRequired,
+  // }),
+  // onLogin: PropTypes.func.isRequired,
+  // onLogout: PropTypes.func.isRequired,
+  // onCreateAccount: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
   user: null,
 };
+
+export default Header;

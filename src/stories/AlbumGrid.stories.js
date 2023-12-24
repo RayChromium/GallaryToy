@@ -1,5 +1,5 @@
 import { within, userEvent, expect } from '@storybook/test';
-
+import { BrowserRouter } from 'react-router-dom';
 import { AlbumGrid } from './AlbumGrid';
 
 export default {
@@ -9,9 +9,11 @@ export default {
       // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
       layout: 'fullscreen',
     },
+    decorators: [(Story) => <BrowserRouter><Story /></BrowserRouter>],
 };
 
 export const ShowAll = {
+  render: (args) => <AlbumGrid {...args} />,
   args: { 
     "albumList": [
       {

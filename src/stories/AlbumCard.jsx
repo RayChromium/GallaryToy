@@ -2,6 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 export const AlbumCard = ( {album} ) => {
+
+  console.log('album in albumcard:', album);
   let navigate = useNavigate();
 
   function navigateToDetails() {

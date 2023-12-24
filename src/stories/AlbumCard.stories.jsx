@@ -10,14 +10,6 @@ export default {
     decorators: [(Story) => <BrowserRouter><Story/></BrowserRouter>], 
 };
 
-const Template = (args) => <AlbumCard {...args} />;
-
-// export const Default = () => (
-//   <BrowserRouter>
-//     <AlbumCard />
-//   </BrowserRouter>
-// );
-
 export const ExampleAlbumCard = {
   render: (args) => <AlbumCard {...args} />,
   args: {

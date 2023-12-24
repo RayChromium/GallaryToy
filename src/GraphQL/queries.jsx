@@ -14,7 +14,7 @@ query Albums {
 `;
 
 const GET_ALBUM = gql`
-query Albums {
+query Albums ($id: ID!){
     album(where: {id: $id}) {
       thumbnail {
         url
@@ -30,6 +30,7 @@ query Albums {
       title
       images {
         url
+        id
       }
     }
   }

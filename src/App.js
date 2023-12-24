@@ -1,24 +1,40 @@
 import { useState, useEffect } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Album from './services/Album';
 import Header from './stories/Header';
 import AlbumGrid from './stories/AlbumGrid';
+import AlbumDetail from './AlbumDetail';
 import './index.css';
 
 function App() {
   const [albumList, setAlbumlist] = useState(null);
 
-  useEffect( () => {
-    const albums = Album.getAlbumList();
-    albums.then( albums => {
-      console.log(albums);
-      setAlbumlist(albums);
-    } )
+  useEffect(() => {
+    let isMounted = true;
+  
+    Album.getAlbumList().then(albums => {
+      if (isMounted) {
+        console.log(albums);
+        setAlbumlist(albums);
+      }
+    });
+  
+    return () => {
+      isMounted = false;
+    };
   }, []);
   return (
-    <div className="App">
-      <Header/>
-      <AlbumGrid albumList={albumList}/>
-    </div>
+    <Router>
+      <div className="App">
+        <Header/>
+        <Routes>
+          <Route exact path='/' element={<AlbumGrid albumList={albumList}/>}></Route>
+          <Route path="/album/:albumId" element={<AlbumDetail />} />
+        </Routes>
+        {/* <AlbumGrid albumList={albumList}/> */}
+      </div>
+    </Router>
+    
   );
 }
 

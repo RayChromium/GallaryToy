@@ -10,7 +10,7 @@ export default {
 
 export const ExamplePage = {
   args: { 
-    pageUrl: "https://media.graphassets.com/9RZJXjPQAyanshrq92Yw",
+    pageUrl: "https://media.graphassets.com/PNb3vHWDSFuyehrRcfI2",
     pageIndex: 1,
     openModalToImage: () => {console.log("openModalToImage called");}
   }
